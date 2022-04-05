@@ -3,7 +3,7 @@
 
 翻译的质量对比看 input_file 和 output_file 文件夹中的论文
 
-![](https://raw.githubusercontent.com/GTGraphics3/CloudPic/master/img/Kapture 2022-04-05 at 17.18.19.gif)
+![](https://raw.githubusercontent.com/GTGraphics3/CloudPic/master/gif/Kapture_2022-04-05_at_17.18.19.gif)
 
 ## 特点
 
