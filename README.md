@@ -3,7 +3,7 @@
 
 翻译的质量对比看 input_file 和 output_file 文件夹中的论文
 
-![](https://raw.githubusercontent.com/GTGraphics3/CloudPic/master/gif/Kapture_2022-04-05_at_17.18.19.gif)
+![](https://raw.githubusercontent.com/Ding-Kyoma/CloudPic/master/gif/Kapture_2022-04-05_at_17.18.19.gif)
 
 ## 特点
 
@@ -30,7 +30,7 @@
 
 (可选) `conda activate trans`  # 激活环境
 
-`git clone https://github.com/GTGraphics3/EasyTrans-mac.git`  # 下载代码
+`git clone https://github.com/Ding-Kyoma/EasyTrans-mac.git`  # 下载代码
 
 `cd EasyTrans-mac`  # 进入文件夹
 
@@ -61,7 +61,7 @@
 output_file 中查看结果
 
  
- 
+
  
 
 ## Some Tips:

@@ -11,17 +11,20 @@
 
 '''
 import os
-import fitz
-import time
-import requests
 import re
+import sys
+import time
+import inspect
+
+import fitz
+import requests
+from tqdm import tqdm
 from docx import Document
 from docx.shared import Inches
 from docx.oxml.ns import qn
-import sys
 from translate_func import baidu_translate as net_translate
-from tqdm import tqdm
-import inspect
+
+
 
 # store builtin print
 old_print = print
@@ -71,7 +74,7 @@ for file in all_file:
     i = 0  # 定义页面数的递增
     bytes_array = 0
     try:
-        for cur_page in tqdm(cur_pdf, dynamic_ncols=True):
+        for cur_page in tqdm(cur_pdf, file_name, dynamic_ncols=True):
             print(f'\n==================================== 正在翻译第{i+1}页 ====================================')
             img_list = cur_page.get_images()  # 获取当前页面的图片对象
             # print(img_list)
@@ -237,10 +240,9 @@ for file in all_file:
     
     except:
         print('翻译过程出现异常......')
-        new_file_name = os.path.join(root,'EasyTrans-mac', 'output_file', 'translated_' + file_name)  # 翻译后的pdf保存路径
+        new_file_name = os.path.join(root,'EasyTrans-mac', 'output_file',  file_name[:-4] + '_translated' + '.pdf')  # 翻译后的pdf保存路径
         print(new_file_name)
-        new_docx_name = os.path.join(root,'EasyTrans-mac', 'output_file',
-                                     'translated_' + file_name[:-4] + '.docx')  # 翻译后的docx保存路径
+        new_docx_name = os.path.join(root,'EasyTrans-mac', 'output_file', file_name[:-4] + '_translated' + '.docx')  # 翻译后的docx保存路径
         new_docx.save(new_docx_name)  # 保存翻译后的docx
         new_pdf.save(new_file_name, garbage=4, deflate=True, clean=True)  # 保存翻译后的pdf
         t1 = time.time()
@@ -254,8 +256,7 @@ for file in all_file:
             os.remove(new_file_name)
         except:
             print('删除已有的文件失败，请先关闭该文件然后重新翻译！')
-    new_docx_name = os.path.join(root,'EasyTrans-mac', 'output_file',
-                                 file_name[:-4] + '_translated' + '.docx')  # 翻译后的docx保存路径
+    new_docx_name = os.path.join(root,'EasyTrans-mac', 'output_file', file_name[:-4] + '_translated' + '.docx')  # 翻译后的docx保存路径
     if os._exists(new_docx_name):
         try:
             os.remove(new_docx_name)
@@ -271,7 +272,7 @@ for file in all_file:
 
     try:
         new_pdf.save(new_file_name, garbage=3, deflate=True)  # 保存翻译后的pdf
-        print('保存pdf成功')
+        print('保存pdf成功\n')
     except Exception as e:
         print(f"Reason: {e}")
         print('保存pdf异常')
