@@ -131,13 +131,18 @@ def google_translate(content):
 # 百度翻译方法
 @CallingCounter
 def baidu_translate(content,boundary=0):
+    if content.isspace():
+        baidu_translate.count -= 1
+        return ' '
+
     if boundary > 10:
-        print('Stop trying')
-        return "ERROR"
+        # print('Stop trying')
+        return f"**** Translate {content} ERROR ****"
 
     if len(content) > 4891:
-        half = int(len(content))
-        return baidu_translate(content[:half]) + baidu_translate(content[half+1:])
+        half = content.find('.',4000)
+        baidu_translate.count -= 1
+        return baidu_translate(content[:half+1]) + baidu_translate(content[half+1:])
 
     content = re.sub(r'- ', '',content)
 
@@ -165,6 +170,7 @@ def baidu_translate(content,boundary=0):
         sleep(1.0 - time_interval)
     baidu_translate.time[i] = time()   
 
+    # Post
     j = requests.post('http://api.fanyi.baidu.com/api/trans/vip/translate', params=head, headers=headers)
 
     try:
@@ -173,8 +179,9 @@ def baidu_translate(content,boundary=0):
         print(content)
         print(res)
     except:
-        if boundary>3:
+        if boundary>9:
             print('\n********** ERROR **********')
+            print(f"content: {content}")
             print(f"error_code: {j.json()['error_code']}")
             print(f"error_msg: {j.json()['error_msg']}")
             print(f'******** Try Again({boundary}) ********\n')

@@ -1,24 +1,32 @@
 # EasyTrans-mac
-网上很难找到没有限制的优质PDF翻译, 而这个项目解决了这个限制。支持PDF 批量翻译，翻译后的PDF格式基本不变。导出PDF和Docx。优化并精简了来自于QPromise 的 EasyTrans。使用最新的PyMuPDF库!
+网上很难找到没有限制的优质批量PDF翻译, 而这个项目解决了这个限制。支持PDF 批量翻译，翻译后的PDF格式基本不变。支持导出PDF, TXT和Docx。优化并精简了来自于QPromise 的 EasyTrans。使用最新的PyMuPDF库!
 
-翻译的质量对比看 input_file 和 output_file 文件夹中的论文
+**翻译的质量对比看 input_file 和 output_file 文件夹中的论文**
 
 ![](https://raw.githubusercontent.com/Ding-Kyoma/CloudPic/master/gif/Kapture_2022-04-05_at_17.18.19.gif)
 
 ## 特点
 
 - 支持批量翻译
+
 - 优化了换行符造成的翻译质量的问题
-- 优化了百度翻译API (免费版), 可以稳定进行**大量**的翻译, 例如长paper 
+
+- 优化了百度翻译API (免费版), 可以稳定进行**大量**的翻译
+
 - 可视化翻译进度, 实时预览翻译内容
+
+- 翻译后可导出PDF, TXT, Word
+
 - 精简了环境安装包, 可自行尝试最新版PyMuPDF. 环境需求:
   - PyMuPDF (new version 1.19.6, 比老版本更加稳定)
   - python-docx
   - tqdm
   - PyExecJS
   - requests
+  
+  
 
-环境为mac, linux同理, win可以尝试
+环境为mac. linux同理, win可以尝试
 
 ## 使用
 
@@ -54,11 +62,9 @@
 
 ### Step.3 批量翻译
 
-将需要翻译的PDF文件放入input_file
-
-运行 `python trans_file.py `
-
-output_file 中查看结果
+1. 将需要翻译的PDF文件放入input_file文件夹
+2. 运行 `python run.py `
+3. output_file 文件夹中查看结果
 
  
 
@@ -66,5 +72,10 @@ output_file 中查看结果
 
 ## Some Tips:
 
-- 若不想让翻译文件包含图片, 在`trans_file.py` 中将第37行改为 `save_img=Flase`, 若出现翻译文件有中英文重叠可以尝试
+- 若不想让翻译文件包含图片, 在`run.py` 中将第28行改为 `save_img = Flase` (若出现翻译文件有中英文重叠可以尝试)
+- 若想不导出word, 在`run.py` 中将第29行改为 `save_docx = Flase`
+
+
+
+有问题可以提交issue~
 
