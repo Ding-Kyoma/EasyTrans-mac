@@ -153,6 +153,7 @@ def baidu_translate(content,boundary=0):
     appid = ['20191210000364718']  
     secretKey = ['e83BXpQFTnXrTy62O9MO'] 
 
+
     i = baidu_translate.count % len(appid)
     sign = appid[i] + content + salt + secretKey[i]
     sign = md5(sign.encode(encoding='UTF-8')).hexdigest()
