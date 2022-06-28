@@ -18,7 +18,7 @@
 - 翻译后可导出PDF, TXT, Word
 
 - 精简了环境安装包, 可自行尝试最新版PyMuPDF. 环境需求:
-  - PyMuPDF (new version 1.19.6, 比老版本更加稳定)
+  - PyMuPDF (适配 new version 1.20.1)
   - python-docx
   - tqdm
   - PyExecJS
