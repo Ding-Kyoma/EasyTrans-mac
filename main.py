@@ -104,10 +104,10 @@ def main():
                     # print(pix_temp.getImageData('png'))
                     pix_temp = None  # 释放资源
                 blks = cur_page.get_text_blocks(flags = 4)  # read text blocks of input page
-                new_page = new_pdf.new_page(-1, width=cur_page.MediaBoxSize[0],
-                                        height=cur_page.MediaBoxSize[1])  # 创建一个新的页面与之前的页面相同大小
+                new_page = new_pdf.new_page(-1, width=cur_page.mediabox_size[0],
+                                        height=cur_page.mediabox_size[1])  # 创建一个新的页面与之前的页面相同大小
                 img = new_page.new_shape()  # prepare /Contents object
-                disp = fitz.Rect(cur_page.CropBoxPosition, cur_page.CropBoxPosition)
+                disp = fitz.Rect(cur_page.cropbox_position, cur_page.cropbox_position)
                 croprect = cur_page.rect + disp
                 # img.drawRect(croprect)#画出整个页面的矩形
                 # img.finish(color=gray, fill=gray)#填充颜色
@@ -256,8 +256,10 @@ def main():
                 # test
                 # new_pdf.save(os.path.join(root,'EasyTrans-mac', 'trans', 'output_file',  file_name[:-4] + '_translated_' +f'{i}' + '.pdf'), garbage=3, deflate=True)
         
-        except:
+        except Exception as e:
+
             print('翻译过程出现异常......')
+            print(e)
             new_file_name = os.path.join(root,'EasyTrans-mac', 'output_file',  file_name[:-4] + '_translated' + '.pdf')  # 翻译后的pdf保存路径
             print(new_file_name)
             new_docx_name = os.path.join(root,'EasyTrans-mac', 'output_file', file_name[:-4] + '_translated' + '.docx')  # 翻译后的docx保存路径
@@ -325,5 +327,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
