@@ -30,7 +30,7 @@
 
 ## 使用
 
-### Step.1 安装环境 (推荐使用conda)
+### Step.1 安装环境, 推荐使用conda, m1 mac需要额外运行带说明的命令
 
 > 如何安装conda 自行google/baidu, 非必须
 
@@ -41,6 +41,10 @@
 `git clone https://github.com/Ding-Kyoma/EasyTrans-mac.git`  # 下载代码
 
 `cd EasyTrans-mac`  # 进入文件夹
+
+(m1 mac)`brew install mupdf swig freetype`
+
+(m1 mac)`pip install https://github.com/pymupdf/PyMuPDF/archive/master.tar.gz`
 
 `pip -r pip install -r requirements.txt `  # 安装环境
 
@@ -82,6 +86,11 @@
 **有问题可以提交issue~**
 
 # Update 日志
+
+#### 2022.6.28
+
+- 更新支持 `PyMuPDF==1.20.1`
+- 添加 m1 mac的支持
 
 #### 2022.4.29
 
