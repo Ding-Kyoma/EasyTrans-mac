@@ -168,7 +168,7 @@ def baidu_translate(content,boundary=0):
     # Contral QPS (使用高级账号请注释下面4行代码)
     # time_interval = time() - baidu_translate.time[i]
     # if time_interval < 1.0:
-        sleep(1.0 - time_interval)
+    #    sleep(1.0 - time_interval)
     # baidu_translate.time[i] = time()   
 
     # Post
