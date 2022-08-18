@@ -52,12 +52,9 @@
 
 ### Step.2 使用自己的百度翻译API (更加稳定, 完全免费)
 
-1. 在 https://api.fanyi.baidu.com 注册 **通用翻译**, 开通**基础版/高级版**
-   - **基础版**优点是可以无限翻译,但是有速度限制 (每秒1次请求)
-   - **高级版**优点是速度快, 但是每个月免费的额度有200w字数限制 (低需求翻译可申请这个)
-   - 推荐使用基础版, 并注册多个账号, 可以达到高级版的速度同时无字数限制
+1. 在 https://api.fanyi.baidu.com 注册 **通用翻译**, 开通**高级版**账号
+   - **高级版**优点是速度快, 每个月免费的额度有100w字数限制
 2. 在**管理控制台**, **总览** 的最下面找到自己的 APP ID 和 密钥, 修改 `translate_func.py` , 151, 152 行的 appid 和secretKey. 支持添加**多个基础版账号**来获得更高的请求速度 (3-5 个足以). 
-   - 若添加**高级版账号**请注释掉下面的 # contral QPS 代码块
 3. 若想使用其他翻译的API, 在`trans_file.py` 中 替换 `from translate_func import baidu_translate as net_translate`  
    - 有道翻译 `from translate_func import youdao_translate as net_translate` 
    - 谷歌翻译 `from translate_func import google_translate as net_translate`
