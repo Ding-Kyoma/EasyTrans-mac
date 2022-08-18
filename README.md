@@ -64,7 +64,7 @@
 ### Step.3 批量翻译
 
 1. 将需要翻译的PDF文件放入input_file文件夹
-2. 运行 `python run.py `
+2. 运行 `python main.py `
 3. output_file 文件夹中查看结果
 
  
@@ -99,4 +99,4 @@
 - 优化长段的分割算法
 - 调用多账号逻辑优化
 - 翻译完成的文件统一放入 output_file 文件夹
-- 主程序名称改为 run.py
+- 主程序名称改为 main.py
