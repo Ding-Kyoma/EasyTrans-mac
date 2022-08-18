@@ -73,8 +73,8 @@
 
 ## Some Tips:
 
-- 若不想让翻译文件包含图片, 在`run.py` 中将第28行改为 `save_img = Flase` (若出现翻译文件有中英文重叠可以尝试)
-- 若想不导出word, 在`run.py` 中将第29行改为 `save_docx = Flase`
+- 若不想让翻译文件包含图片, 在`main.py` 中将第28行改为 `save_img = Flase` (若出现翻译文件有中英文重叠可以尝试)
+- 若想不导出word, 在`main.py` 中将第29行改为 `save_docx = Flase`
 
  
 
