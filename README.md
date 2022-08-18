@@ -46,7 +46,7 @@
 
 (m1 mac)`pip install https://github.com/pymupdf/PyMuPDF/archive/master.tar.gz`
 
-`pip -r pip install -r requirements.txt `  # 安装环境
+`pip install -r requirements.txt `  # 安装环境
 
 
 
@@ -86,6 +86,9 @@
 **有问题可以提交issue~**
 
 # Update 日志
+
+#### 2022.8.18
+- 移除特定版本包
 
 #### 2022.6.28
 
