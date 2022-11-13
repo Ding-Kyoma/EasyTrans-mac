@@ -26,7 +26,7 @@ from docx.oxml.ns import qn
 from translate_func import baidu_translate as net_translate
 
 save_img = True
-save_docx = False
+save_docx = True
 
 # store builtin print
 old_print = print
