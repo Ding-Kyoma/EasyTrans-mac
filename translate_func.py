@@ -21,6 +21,8 @@ from hashlib import md5
 from time import sleep, time
 import re
 
+from account import *
+
 
 class CallingCounter(object):
     def __init__ (self, func):
@@ -148,12 +150,6 @@ def baidu_translate(content,boundary=0):
 
     salt = str(random.randint(32768, 65536))
 
-    # 申请网站 http://api.fanyi.baidu.com/api/trans
-    # 替换并加入更多的账号来分流预测， 用英文逗号隔开 （高级版填入一个即可）
-    appid = ['20191210000364718']  
-    secretKey = ['e83BXpQFTnXrTy62O9MO'] 
-
-
     i = baidu_translate.count % len(appid)
     sign = appid[i] + content + salt + secretKey[i]
     sign = md5(sign.encode(encoding='UTF-8')).hexdigest()
@@ -168,7 +164,7 @@ def baidu_translate(content,boundary=0):
     # Contral QPS (使用高级账号请注释下面4行代码)
     # time_interval = time() - baidu_translate.time[i]
     # if time_interval < 1.0:
-    #    sleep(1.0 - time_interval)
+    #     sleep(1.0 - time_interval)
     # baidu_translate.time[i] = time()   
 
     # Post

@@ -26,7 +26,7 @@ from docx.oxml.ns import qn
 from translate_func import baidu_translate as net_translate
 
 save_img = True
-save_docx = True
+save_docx = False
 
 # store builtin print
 old_print = print
@@ -66,6 +66,7 @@ def main():
 
     for file in all_file:
         file_content = []
+        file_content_org = []
         # 翻译文献到新的pdf以及word中
         path = root + "/EasyTrans-mac/input_file/" + file #这里改pdf的名字
         file_name = os.path.basename(path)
@@ -253,6 +254,9 @@ def main():
                 file_content.append('\n')
                 file_content.append(net_translate(page_content))
 
+                file_content_org.append(page_content)
+                file_content_org.append('\n')
+
                 # test
                 # new_pdf.save(os.path.join(root,'EasyTrans-mac', 'trans', 'output_file',  file_name[:-4] + '_translated_' +f'{i}' + '.pdf'), garbage=3, deflate=True)
         
@@ -288,15 +292,33 @@ def main():
                 print('删除已有的文件失败，请先关闭该文件然后重新翻译！')
 
         new_txt_name = os.path.join(root,'EasyTrans-mac', 'output_file',  file_name[:-4] + '_translated' + '.txt')
+        new_txt_name_org = os.path.join(root,'EasyTrans-mac', 'output_file',  file_name[:-4] + '_org' + '.txt')
+
         if os._exists(new_txt_name):
             try:
                 os.remove(new_txt_name)
             except:
                 print('删除已有的文件失败，请先关闭该文件然后重新翻译！')
 
+        if os._exists(new_txt_name_org):
+            try:
+                os.remove(new_txt_name_org)
+            except:
+                print('删除已有的文件失败，请先关闭该文件然后重新翻译！')
+
         try: 
             f = open(new_txt_name,'w')
             for content in file_content:
+                print(content,file=f)
+            f.close()
+            print('保存txt成功')
+        except Exception as e:
+            print(f"Reason: {e}")
+            print('保存txt异常')
+
+        try: 
+            f = open(new_txt_name_org,'w')
+            for content in file_content_org:
                 print(content,file=f)
             f.close()
             print('保存txt成功')
