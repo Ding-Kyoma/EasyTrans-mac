@@ -9,3 +9,5 @@ requests
 six
 tqdm
 urllib3
+openai
+tenacity

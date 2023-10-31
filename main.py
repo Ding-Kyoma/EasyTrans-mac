@@ -16,6 +16,7 @@ import sys
 import time
 import shutil
 import inspect
+import traceback
 
 import fitz
 import requests
@@ -23,7 +24,7 @@ from tqdm import tqdm
 from docx import Document
 from docx.shared import Inches
 from docx.oxml.ns import qn
-from translate_func import baidu_translate as net_translate
+from translate_func import gpt_translate as net_translate
 
 save_img = True
 save_docx = True
@@ -197,7 +198,7 @@ def main():
                                 # fitz.Rect(end[0],begin[1],end[2],end[3])为新扩展的矩形框坐标
                                 if begin[2] > end[2]:  # 如果起始点的右下角x坐标小于结束点的右下角x坐标
                                     new_page.insert_textbox(fitz.Rect(end[0], begin[1], begin[2], end[3]), res, fontname="song",
-                                                        fontfile=os.path.join(root,'EasyTrans',
+                                                        fontfile=os.path.join(root,'EasyTrans-mac',
                                                                               'SimSun.ttf'),
                                                         fontsize=fonts, align=text_pos)
                                 else:
@@ -263,7 +264,7 @@ def main():
         except Exception as e:
 
             print('翻译过程出现异常......')
-            print(e)
+            traceback.print_exc()
             new_file_name = os.path.join(root,'EasyTrans-mac', 'output_file',  file_name[:-4] + '_translated' + '.pdf')  # 翻译后的pdf保存路径
             print(new_file_name)
             new_docx_name = os.path.join(root,'EasyTrans-mac', 'output_file', file_name[:-4] + '_translated' + '.docx')  # 翻译后的docx保存路径

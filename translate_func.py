@@ -20,7 +20,12 @@ import random
 from hashlib import md5
 from time import sleep, time
 import re
-
+import openai
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_random_exponential,
+)  # for exponential backoff
 from account import *
 
 
@@ -128,6 +133,80 @@ def google_translate(content):
             res += trans[i][0]
 
     return res
+
+
+@retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
+def translate(key, target_language, text, use_azure=False, api_base="", deployment_name="", options=None):
+    # Set up OpenAI API version
+    if use_azure:
+        openai.api_type = "azure"
+        openai.api_version = AZURE_API_VERSION
+        openai.api_base = api_base
+    if api_base:
+        openai.api_base = api_base
+    # Set up OpenAI API key
+    openai.api_key = key[0]
+    if not text:
+        return ""
+    # lang
+
+    # Set up the prompt
+    messages = [{
+        'role': 'system',
+        'content': 'You are a translator assistant.'
+    }, {
+        "role":
+        "user",
+        "content":
+        f"Translate the following text into {target_language}. Retain the original format. Return only the translation and nothing else:\n{text}",
+    }]
+    if use_azure:
+        completion = openai.ChatCompletion.create(
+            # No need to specify model since deployment contain that information.
+            messages=messages,
+            deployment_id=deployment_name
+        )
+    else:
+        completion = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo-16k",
+            messages=messages,
+        )
+
+    t_text = (completion["choices"][0].get("message").get(
+        "content").encode("utf8").decode())
+
+    return t_text
+
+def divide_string_by_sentences(input_string, max_length):
+    sentence_regex = re.compile(r'.*?[.?!\n]+', re.DOTALL)
+    sentences = sentence_regex.findall(input_string)
+
+    parts = []
+    current_part = ''
+    for sentence in sentences:
+        if len(current_part) + len(sentence) <= max_length:
+            current_part += sentence
+        else:
+            parts.append(current_part.strip())
+            current_part = sentence
+
+    if current_part:
+        parts.append(current_part.strip())
+
+    return parts
+
+# chatgpt翻译
+def gpt_translate(content):
+    '''实现gpt的翻译'''
+
+    content = content.replace('\n','')
+    print(content)
+    max_length = 11000
+    if len(content) > max_length:
+        parts = divide_string_by_sentences(content, max_length)
+        return "".join([gpt_translate(part) for part in parts])
+    else:
+        return translate(secretKey,"Chinese", content, api_base="https://aigptx.top/v1")
 
 
 # 百度翻译方法
