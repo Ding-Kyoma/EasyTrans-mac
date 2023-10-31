@@ -24,7 +24,7 @@ from tqdm import tqdm
 from docx import Document
 from docx.shared import Inches
 from docx.oxml.ns import qn
-from translate_func import gpt_translate as net_translate
+from translate_func import baidu_translate as net_translate
 
 save_img = True
 save_docx = True
