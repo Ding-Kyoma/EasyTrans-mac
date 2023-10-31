@@ -42,9 +42,9 @@
 
 `cd EasyTrans-mac`  # 进入文件夹
 
-(m1 mac)`brew install mupdf swig freetype`
+(arm mac)`brew install mupdf swig freetype`
 
-(m1 mac)`pip install https://github.com/pymupdf/PyMuPDF/archive/master.tar.gz`
+(arm mac)`pip install https://github.com/pymupdf/PyMuPDF/archive/master.tar.gz`
 
 `pip install -r requirements.txt `  # 安装环境
 
