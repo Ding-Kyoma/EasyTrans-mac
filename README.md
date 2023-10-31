@@ -58,8 +58,8 @@
 3. 若想使用其他翻译的API, 在`main.py` 中更改 `from translate_func import baidu_translate as net_translate`  
    - 有道翻译 `from translate_func import youdao_translate as net_translate` 
    - 谷歌翻译 `from translate_func import google_translate as net_translate`
-
-
+   - gpt翻译 效果更好 `from translate_func import gpt_translate as net_translate`
+     - 在secretKey里放自己的api key
 
 ### Step.3 批量翻译
 
