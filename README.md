@@ -84,12 +84,14 @@
 
 # Update 日志
 
+#### 2023.10.21 
+- update GPT API [#8](https://github.com/Ding-Kyoma/EasyTrans-mac/pull/8) 
+
+
 #### 2022.11.13
 
 - 在`account.py` 更改百度api账号
 - 添加原始文件的txt输出，方便一些手动处理一些奇怪换行的pdf
-
-
 
 #### 2022.8.18
 - 移除特定版本包
