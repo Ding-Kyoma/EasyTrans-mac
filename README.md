@@ -17,13 +17,10 @@
 
 - 翻译后可导出PDF, TXT, Word
 
-- 精简了环境安装包, 可自行尝试最新版PyMuPDF. 环境需求:
-  - PyMuPDF (适配 new version 1.20.2)
-  - python-docx
-  - tqdm
-  - PyExecJS
-  - requests
-  
+- 精简了环境安装包, 可自行尝试最新版PyMuPDF. 主要环境需求 (python=3.10):
+  - PyMuPDF==1.20.2
+  - python-docx==0.8.11
+  - PyExecJS==1.5.1
   
 
 环境为mac. linux同理, win可以尝试
