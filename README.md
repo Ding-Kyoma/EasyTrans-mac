@@ -23,11 +23,11 @@
   - PyExecJS==1.5.1
   
 
-环境为mac. linux同理, win可以尝试
+环境为mac，win/linux 不需要执行arm mac command
 
 ## 使用
 
-### Step.1 安装环境, 推荐使用conda, m1 mac需要额外运行带说明的命令
+### Step.1 安装环境, 推荐使用conda, arm mac需要额外运行命令
 
 > 如何安装conda 自行google/baidu, 非必须
 
@@ -39,9 +39,9 @@
 
 `cd EasyTrans-mac`  # 进入文件夹
 
-(arm mac)`brew install mupdf swig freetype`
+(arm mac only)`brew install mupdf swig freetype`
 
-(arm mac)`pip install https://github.com/pymupdf/PyMuPDF/archive/master.tar.gz`
+(arm mac only)`pip install https://github.com/pymupdf/PyMuPDF/archive/master.tar.gz`
 
 `pip install -r requirements.txt `  # 安装环境
 
@@ -102,7 +102,7 @@
 #### 2022.6.28
 
 - 更新支持 `PyMuPDF==1.20.1`
-- 添加 m1 mac的支持
+- 添加 arm mac的支持
 
 #### 2022.4.29
 
