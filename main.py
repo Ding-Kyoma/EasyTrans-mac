@@ -24,7 +24,13 @@ from tqdm import tqdm
 from docx import Document
 from docx.shared import Inches
 from docx.oxml.ns import qn
-from translate_func import baidu_translate as net_translate
+
+## 选择其中一个api
+from translate_func import baidu_translate as net_translate   # 百度
+# from translate_func import youdao_translate as net_translate  # 有道
+# from translate_func import google_translate as net_translate  # google
+# from translate_func import gpt_translate as net_translate    # ChatGPT
+
 
 save_img = True
 save_docx = True
