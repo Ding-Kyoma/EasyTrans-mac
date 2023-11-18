@@ -1,5 +1,5 @@
 # EasyTrans-mac
-网上很难找到没有限制的优质批量PDF翻译, 而这个项目解决了这个限制。支持PDF 批量翻译，翻译后的PDF格式基本不变。支持导出PDF, TXT和Docx。优化并精简了来自于QPromise 的 EasyTrans。使用最新的PyMuPDF库!
+网上很难找到没有限制的优质批量PDF翻译, 而这个项目解决了这个限制。支持PDF 批量翻译，翻译后的PDF格式基本不变。支持导出PDF, TXT和Docx。优化并精简了来自于QPromise的[EasyTrans](https://github.com/QPromise/EasyTrans)。使用最新的PyMuPDF库!
 
 **翻译的质量对比看 input_file 和 output_file 文件夹中的论文**
 
