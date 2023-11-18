@@ -212,6 +212,9 @@ def gpt_translate(content):
 # 百度翻译方法
 @CallingCounter
 def baidu_translate(content,boundary=0):
+    if not content:
+        return ' '
+        
     if content.isspace():
         baidu_translate.count -= 1
         return ' '
@@ -221,7 +224,8 @@ def baidu_translate(content,boundary=0):
         return f"**** Translate {content} ERROR ****"
 
     if len(content) > 4891:
-        half = content.find('.',4000)
+        # half = content.find('.',4000)
+        half = len(content) // 2
         baidu_translate.count -= 1
         return baidu_translate(content[:half+1]) + baidu_translate(content[half+1:])
 
