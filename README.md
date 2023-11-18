@@ -81,6 +81,10 @@
 
 # Update 日志
 
+#### 2023.11.18 
+- fix bug [#7](https://github.com/Ding-Kyoma/EasyTrans-mac/issues/7) 
+
+
 #### 2023.10.21 
 - update GPT API [#8](https://github.com/Ding-Kyoma/EasyTrans-mac/pull/8) 
 
