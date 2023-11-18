@@ -70,7 +70,7 @@
 
 ## Some Tips:
 
-- 若不想让翻译文件包含图片，或翻译内容和原文重叠, 在`main.py` 中将第28行改为 `save_img = False`
+- 若不想让翻译文件包含图片，或翻译内容和原文重叠, 在`main.py` 中将第35行改为 `save_img = False`
 - 若想导出word, 在`main.py` 中将第29行改为 `save_docx = True`
 
  
