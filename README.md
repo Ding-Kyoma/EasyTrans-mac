@@ -81,6 +81,9 @@
 
 # Update 日志
 
+#### 2023.11.23
+- fix bug [#10](https://github.com/Ding-Kyoma/EasyTrans-mac/issues/10) 
+
 #### 2023.11.18 
 - fix bug [#7](https://github.com/Ding-Kyoma/EasyTrans-mac/issues/7) 
 
