@@ -52,7 +52,8 @@
 1. 在 https://api.fanyi.baidu.com 注册 **通用翻译**, 开通**高级版**账号
    - **高级版**优点是速度快, 每个月免费的额度有100w字数限制
 2. 在**管理控制台**, **总览** 的最下面找到自己的 APP ID 和 密钥, 修改 `account.py` 的 appid 和secretKey. 支持添加**多个账号**来获得更高的请求速度以及更多的字数. 
-3. 若想使用其他翻译的API, 在`main.py` 中更改 `from translate_func import baidu_translate as net_translate`  
+
+(*注) 若想使用其他翻译的API, 在`main.py` 中注释 `from translate_func import baidu_translate as net_translate` ，并替换成以下其一：
    - 有道翻译 `from translate_func import youdao_translate as net_translate` 
    - 谷歌翻译 `from translate_func import google_translate as net_translate`
    - gpt翻译 效果更好 `from translate_func import gpt_translate as net_translate`
