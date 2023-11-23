@@ -348,8 +348,11 @@ def main():
             print(f"Reason: {e}")
             print('保存pdf异常')
 
-        shutil.move(path,os.path.join(root,'EasyTrans-mac', 'output_file',  file_name))
-
+        try:
+            shutil.move(path,os.path.join(root,'EasyTrans-mac', 'output_file',  file_name))
+        except Exception as e:
+            print(f"Reason: {e}")
+            print('转移原始文件失败，可能是文件在另外的软件打开。\n请手动将pdf文件移出input文件夹。')
 
     t1 = time.time()
     print(f"Total translation time: {round((t1 - t0),1)} sec")
