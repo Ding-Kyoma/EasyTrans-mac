@@ -3,7 +3,7 @@
 '''
 @Author  :  yiding
 
-@Contact :  yw2686a@student.american.edu
+@Contact :  yiding.w@qq.com
 
 @Time    :  May 30,2022
 
