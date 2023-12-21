@@ -9,5 +9,5 @@ requests
 six
 tqdm
 urllib3
-openai
+openai==0.28
 tenacity
