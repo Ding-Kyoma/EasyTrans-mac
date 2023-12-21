@@ -82,6 +82,9 @@
 
 # Update 日志
 
+#### 2023.12.21
+- fix openai version [#12](https://github.com/Ding-Kyoma/EasyTrans-mac/issues/12)
+
 #### 2023.11.23
 - fix bug [#10](https://github.com/Ding-Kyoma/EasyTrans-mac/issues/10) 
 
