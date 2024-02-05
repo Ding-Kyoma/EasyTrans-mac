@@ -114,6 +114,11 @@ def youdao_translate(content):
 def google_translate(content):
     '''实现谷歌的翻译'''
 
+    proxies = {
+        'http': 'http://127.0.0.1:10809',
+        'https': 'http://127.0.0.1:10809'
+    }
+
     content = content.replace('\n','')
     print(content)
     js = Py4Js()
@@ -123,10 +128,12 @@ def google_translate(content):
     param = {'tk': tk, 'q': content}
     result = requests.get("""http://translate.google.cn/translate_a/single?client=t&sl=en 
         &tl=zh-CN&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss 
-        &dt=t&ie=UTF-8&oe=UTF-8&clearbtn=1&otf=1&pc=1&srcrom=0&ssel=0&tsel=0&kc=2""", params=param)
+        &dt=t&ie=UTF-8&oe=UTF-8&clearbtn=1&otf=1&pc=1&srcrom=0&ssel=0&tsel=0&kc=2""", params=param, proxies=proxies)
     #返回的结果为Json，解析为一个嵌套列表  
     trans = result.json()[0]
     res = ''
+    if trans is None:
+        return res
     for i in range(len(trans)):
         line = trans[i][0]
         if line != None:
